@@ -1,0 +1,135 @@
+/* 🌿 Default body styling for homepage */
+body.homepage {
+  background-image: url("/static/covers/cover.png");
+  background-size: 100% 100%; /* Fit exactly to viewport */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #fdf6f0; /* fallback tone */
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Ensure full viewport height */
+  overflow: hidden; /* Prevent scrollbars from overlap */
+}
+
+/* 🪨 Body styling for praise scrolls and other pages */
+body.scrolls-page {
+  background-image: none;
+  background-color: #fdf6f0;
+  font-family: "Nunito", sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🕊️ Headings */
+h1 {
+  color: #6b4c35;
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 1em;
+}
+
+/* 📜 Testimony cards */
+.card {
+  background-color: #fffefc;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  padding: 1em;
+}
+
+/* 🔙 Return button */
+.return-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f4e8d1;
+  color: #333;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.return-button:hover {
+  background-color: #e0d4b8;
+}
+
+/* 🖼️ Images */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* 🌅 Hero section for homepage */
+.hero-section {
+  background: none;
+  padding: 100px 20px;
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
+}
+/* ✅ Flash message styling */
+.alert-success {
+  background-color: #f4fce3;
+  color: #3a3a2a;
+  border-left: 4px solid #a3d977;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+/* 🌿 Homepage title */
+.altar-title {
+  font-size: 2.5rem;
+  color: #3a3a2a;
+  margin-bottom: 1rem;
+}
+
+/* 🕊️ Poetic blessing */
+.altar-blessing {
+  font-size: 1.2rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+/* 🖼️ Shrine image */
+.altar-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+/* 🧭 Navigation buttons */
+.altar-links a {
+  margin: 0.5rem;
+}
+
+/* 🎶 Audio scroll */
+.altar-audio {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* 🎶 Quiet audio scroll in corner */
+.corner-audio {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 4px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+
+
+
