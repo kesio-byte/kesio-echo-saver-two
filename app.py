@@ -1,5 +1,5 @@
 # ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
-# 🌿 Shrine Initialization — Tuesday, 14 October 2025, 05:42 AM
+# 🌿 Shrine Initialization — Saturday, 18 October 2025, 04:29 AM
 # 📍 Location: Blantyre, Malawi
 # 🧎🏾‍♂️ Purpose: Activate dynamic shrine, prevent duplicates, robe altar
 # ┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
@@ -10,7 +10,7 @@ from datetime import datetime
 import random
 import os  # 🌿 For saving audio scrolls
 
-from models import db, Song, Visit  # 👈 Testimony removed for now
+from models import db, Song, Visit
 from flask_migrate import Migrate
 
 # 🌿 Shrine Setup
@@ -21,7 +21,7 @@ db.init_app(app)
 migrate = Migrate(app, db)
 app.config['SECRET_KEY'] = 'echo-blessing'
 
-# Update /submit route with Validation
+# 🧎🏾‍♂️ Submit Offering — Uploads new scrolls and prevents duplicates
 @app.route("/submit", methods=["GET", "POST"])
 def submit_testimony():
     if request.method == "POST":
@@ -82,8 +82,6 @@ def submit_testimony():
     # 🧎🏾‍♂️ If GET request, show the offering form
     return render_template("submit.html", title="Submit Testimony")
 
-
-
 # 🏠 Home Altar — Root route that records visits and robes the altar with latest scroll
 @app.route("/")
 def index_with_visit():
@@ -109,49 +107,4 @@ def index_with_visit():
 def songs():
     all_songs = Song.query.order_by(Song.title.asc()).all()
     return render_template("songs.html", title="Praise Scrolls", songs=all_songs)
-
-# 🧎🏾‍♂️ Submit Offering — Uploads new scrolls and prevents duplicates
-@app.route("/submit", methods=["GET", "POST"])
-def submit_testimony():
-    if request.method == "POST":
-        # 🧾 Gather form data from the altar
-        title = request.form["title"]
-        caption = request.form["caption"]  # 👈 Still collected, but not stored
-        bpm = request.form.get("bpm", type=int)
-        genre = request.form["genre"]
-        language = request.form["language"]
-        song_id = request.form["song_id"].lower().replace(" ", "-")
-        audio = request.files["audio"]
-
-        # 🛑 Check if song already exists in the shrine
-        existing_song = Song.query.get(song_id)
-        if existing_song:
-            flash("🛑 This song already exists in the shrine. Upload skipped.")
-            return redirect(url_for("submit_testimony"))
-
-        # 🎧 Save the audio scroll
-        if audio:
-            filename = audio.filename.lower()
-            music_path = os.path.join("static/music", filename)
-            os.makedirs(os.path.dirname(music_path), exist_ok=True)
-            audio.save(music_path)
-
-        # 📜 Create the Song scroll
-        new_song = Song(
-            id=song_id,
-            title=title,
-            genre=genre,
-            bpm=bpm,
-            language=language,
-            audio_filename=filename
-        )
-        db.session.add(new_song)
-        db.session.commit()
-
-        # 🌟 Bless the user and redirect
-        flash("🌿 Scroll received and sealed in the shrine.")
-        return redirect(url_for("songs"))
-
-    # 🧎🏾‍♂️ If GET request, show the offering form
-    return render_template("submit.html", title="Submit Testimony")
 
