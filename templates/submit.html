@@ -5,12 +5,13 @@
   <h2 class="mb-3">🌿 Submit a New Testimony</h2>
 
   <!-- 🧎🏾‍♂️ Form wrapper with soft background and border -->
-  <form method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-light shadow-sm">
+  <form method="POST" enctype="multipart/form-data" class="p-4 border rounded bg-light shadow-sm needs-validation" novalidate>
 
     <!-- 🪶 Title of the offering -->
     <div class="mb-3">
       <label for="title" class="form-label">🪶 Title</label>
       <input type="text" name="title" id="title" class="form-control" required>
+      <div class="invalid-feedback">Please enter a title for the testimony.</div>
     </div>
 
     <!-- 📜 Poetic caption or reflection -->
@@ -23,18 +24,21 @@
     <div class="mb-3">
       <label for="bpm" class="form-label">🎼 BPM (Beats Per Minute)</label>
       <input type="number" name="bpm" id="bpm" class="form-control">
+      <div class="invalid-feedback">Please enter a valid BPM (positive number).</div>
     </div>
 
     <!-- 🎶 Musical genre -->
     <div class="mb-3">
       <label for="genre" class="form-label">🎶 Genre</label>
-      <input type="text" name="genre" id="genre" class="form-control">
+      <input type="text" name="genre" id="genre" class="form-control" required>
+      <div class="invalid-feedback">Please enter a genre.</div>
     </div>
 
     <!-- 🗣️ Language(s) used -->
     <div class="mb-3">
       <label for="language" class="form-label">🗣️ Language</label>
-      <input type="text" name="language" id="language" class="form-control">
+      <input type="text" name="language" id="language" class="form-control" required>
+      <div class="invalid-feedback">Please enter a language.</div>
     </div>
 
     <!-- 🔗 Link to metadata robe -->
@@ -42,17 +46,36 @@
       <label for="song_id" class="form-label">🔗 Song ID</label>
       <input type="text" name="song_id" id="song_id" class="form-control" required>
       <div class="form-text">Must match a key in your metadata archive (e.g. <code>dance-in-light</code>)</div>
+      <div class="invalid-feedback">Please enter a valid Song ID.</div>
     </div>
 
     <!-- 🎧 Audio scroll upload -->
     <div class="mb-3">
       <label for="audio" class="form-label">🎧 Audio File</label>
       <input type="file" name="audio" id="audio" class="form-control" accept="audio/*" required>
+      <div class="invalid-feedback">Please upload an audio file.</div>
     </div>
 
     <!-- 🕊️ Submit button -->
     <button type="submit" class="btn btn-success">🌿 Submit Testimony</button>
   </form>
 </div>
+
+<!-- ✨ Bootstrap Validation Script -->
+<script>
+(() => {
+  'use strict';
+  const forms = document.querySelectorAll('.needs-validation');
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>
 {% endblock %}
 
