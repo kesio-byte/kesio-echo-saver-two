@@ -1,0 +1,151 @@
+/* 🌿 Reset base layout: remove default spacing and lock height */
+html, body {
+  margin: 0;              /* Remove browser default margin */
+  padding: 0;             /* Remove browser default padding */
+  height: 100vh;          /* Make body fill full screen height */
+  overflow: hidden;       /* Prevent whole-page scrolling */
+}
+
+/* 🧱 Main container layout: the shrine’s central altar */
+#main-container {
+  height: 100vh;                  /* Fill entire screen vertically */
+  max-width: 420px;               /* Limit width for readability on large screens */
+  margin: 0 auto;                 /* Center horizontally within the page */
+  padding: 1rem;                  /* Add gentle inner spacing */
+  overflow-y: auto;               /* Allow internal scroll if content overflows */
+  display: flex;                  /* Use flexbox for vertical stacking */
+  flex-direction: column;        /* Stack children vertically */
+  align-items: center;           /* Center children horizontally */
+  justify-content: flex-start;   /* Align children to the top */
+  background-color: #ffffff;     /* White background for clarity and purity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  border-radius: 12px;           /* Rounded corners for gentleness */
+}
+
+/* ✍️ Base typography: readable, centered, and calm */
+body {
+  font-family: 'Segoe UI', sans-serif; /* Clean, modern font */
+  font-size: 1rem;                     /* Base font size for most screens */
+  line-height: 1.6;                    /* Comfortable line spacing */
+  color: #333333;                      /* Soft dark text for readability */
+  text-align: center;                  /* Centered text alignment */
+  padding: 0;                          /* No extra padding */
+  margin: 0;                           /* No extra margin */
+}
+
+/* 📱 Responsive font size for small screens */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem;                /* Slightly smaller font for compact screens */
+  }
+}
+
+/* 💻 Responsive font size for larger screens */
+@media (min-width: 768px) {
+  body {
+    font-size: 1.1rem;                /* Slightly larger font for spacious screens */
+  }
+}
+/* 🔍 Search Form Container — robes the input and feedback area */
+.search-form-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 🌿 Input field spacing */
+.search-form-container input[type="search"] {
+  min-width: 200px;
+}
+
+/* ✨ Submit button spacing */
+.search-form-container button[type="submit"] {
+  white-space: nowrap;
+}
+
+/* 🛑 Warning message styling */
+.search-form-container .alert-warning {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+/* 🎧 Playback Cover Container — robes the scroll display */
+.playback-cover-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
+}
+
+/* 🎴 Playback card styling */
+#scroll-display.card {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+/* 🖼️ Cover image styling */
+.cover-fill {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
+
+/* 🎶 Audio player spacing */
+.p-3.text-center audio {
+  margin-top: 0.5rem;
+}
+.search-form-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #fefefe;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.search-form-container input[type="search"] {
+  min-width: 200px;
+}
+
+.search-form-container button[type="submit"] {
+  white-space: nowrap;
+}
+
+.search-form-container .alert-warning {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+.playback-cover-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.04);
+}
+
+#scroll-display.card {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #ffffff;
+}
+
+.cover-fill {
+  width: 100%;
+  border-radius: 8px 8px 0 0;
+  object-fit: cover;
+}
+
+.p-3.text-center audio {
+  margin-top: 0.5rem;
+}
+
+
+
